@@ -15,20 +15,23 @@ import java.util.HashMap;
  */
 
 public class Homer {
-    Vector2 velocity;
-    Vector2 position;
-    HashMap<String, Animation> animations;
+    private Vector2 velocity;
+    private Vector2 position;
+    private HashMap<String, Animation> animations;
 
 
-    TextureRegion currentFrame;
+    private TextureRegion currentFrame;
 
-    float elapsedTime = 0;
+    private float elapsedTime = 0;
 
-    boolean isFacingLeft = false;
+    private boolean isFacingLeft = false;
+    private boolean isJumping = false;
 
-    boolean activeKeys[];
+    private boolean activeKeys[];
 
-    String currentAnimation = "walking";
+    private float speedFactor = 1;
+
+    private String currentAnimation = "walking";
 
     Homer() {
         velocity = new Vector2(0, 0);
@@ -39,24 +42,31 @@ public class Homer {
 
     }
 
-    void update (float deltaTime) {
+    void update(float deltaTime) {
         elapsedTime += deltaTime;
 
         if (activeKeys[Input.Keys.SHIFT_LEFT]) {
             currentAnimation = "running";
+            speedFactor = 2f;
         } else
         {
             currentAnimation = "walking";
+            speedFactor = 1f;
+        }
 
+        if (activeKeys[Input.Keys.SPACE] || isJumping) {
+            isJumping = true;
+            currentAnimation = "running";
+            velocity.y = 2 * speedFactor;
         }
 
         if (activeKeys[Input.Keys.LEFT]) {
             isFacingLeft = true;
-            velocity.x = -1;
+            velocity.x = -1 * speedFactor;
 
         } else if (activeKeys[Input.Keys.RIGHT]) {
             isFacingLeft = false;
-            velocity.x = 1;
+            velocity.x = 1* speedFactor;
         } else {
             velocity.x = 0;
             currentAnimation = "walking";
@@ -64,15 +74,20 @@ public class Homer {
 
         currentFrame = animations.get(currentAnimation).getKeyFrame(elapsedTime);
 
-
-
         position.add(velocity);
 
-    //TODO : Convert to component based
+        if (isJumping) {
+            velocity.y -= 0.1;
+
+            if (position.y < 0) {
+                isJumping = false;
+                velocity.y = 0;
+            }
+        }
 
     }
 
-    void draw(SpriteBatch batch) {
+    public void draw(SpriteBatch batch) {
 
 
         if(!isFacingLeft) {
