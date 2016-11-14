@@ -54,8 +54,9 @@ public class Homer {
             speedFactor = 1f;
         }
 
-        if (activeKeys[Input.Keys.SPACE] || isJumping) {
+        if (activeKeys[Input.Keys.SPACE]) {
             isJumping = true;
+
             currentAnimation = "running";
             velocity.y = 2 * speedFactor;
         }
@@ -79,7 +80,7 @@ public class Homer {
         if (isJumping) {
             velocity.y -= 0.1;
 
-            if (position.y < 0) {
+            if (position.y < 1) {
                 isJumping = false;
                 velocity.y = 0;
             }
