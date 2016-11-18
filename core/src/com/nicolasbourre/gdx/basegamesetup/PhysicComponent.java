@@ -10,15 +10,39 @@ public class PhysicComponent extends Component {
     private Vector2 velocity;
     private Vector2 position;
 
-
     private float speedFactor = 1;
 
     PhysicComponent(){
-
+        velocity = new Vector2(0,0);
+        position = new Vector2(0,0);
     }
 
     @Override
-    void update(float deltaTime) {
+    void update(float deltaTime, Actor a) {
 
+    }
+
+    public Vector2 getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(Vector2 velocity) {
+        this.velocity = velocity;
+    }
+
+    public Vector2 getPosition() {
+        return position;
+    }
+
+    public void setPosition(Vector2 position) {
+        this.position = position;
+    }
+
+    public float getSpeedFactor() {
+        return speedFactor;
+    }
+
+    public void setSpeedFactor(float speedFactor) {
+        this.speedFactor = speedFactor;
     }
 }

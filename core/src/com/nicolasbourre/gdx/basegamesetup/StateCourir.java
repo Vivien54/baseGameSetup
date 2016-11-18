@@ -14,4 +14,9 @@ public class StateCourir extends StateActor {
     void exit(Actor a) {
 
     }
+
+    @Override
+    String ToString() {
+        return "running";
+    }
 }

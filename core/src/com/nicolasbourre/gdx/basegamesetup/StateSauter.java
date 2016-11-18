@@ -16,4 +16,9 @@ public class StateSauter extends StateActor {
     void exit(Actor a) {
 
     }
+
+    @Override
+    String ToString() {
+        return "jumping";
+    }
 }

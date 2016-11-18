@@ -5,5 +5,5 @@ package com.nicolasbourre.gdx.basegamesetup;
  */
 
 public abstract class Command {
-
+    abstract void execute(Actor a);
 }

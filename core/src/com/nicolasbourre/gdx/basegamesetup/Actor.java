@@ -8,20 +8,28 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Actor {
    protected StateActor state;
-   protected Component graphic = new GraphComponent();
-   protected Component physic = new PhysicComponent();
-   protected Component input = new InputComponent();
+   protected GraphComponent graphic = new GraphComponent();
+   protected PhysicComponent physic = new PhysicComponent();
+   protected InputComponent input = new InputComponent();
 
     Actor(String img){
-
     }
 
-    void update(){
-
+    void update(float deltaTime){
+        input.update( deltaTime, this);
+        physic.update(deltaTime, this);
     }
 
-    void display(){
+    void display(float deltaTime){
+        graphic.update(deltaTime,this);
+    }
 
+    public StateActor getState() {
+        return state;
+    }
+
+    public void setState(StateActor state) {
+        this.state = state;
     }
 
 }

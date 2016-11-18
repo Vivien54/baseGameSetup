@@ -5,4 +5,8 @@ package com.nicolasbourre.gdx.basegamesetup;
  */
 
 public class CCourir extends Command {
+    @Override
+    void execute(Actor a) {
+
+    }
 }

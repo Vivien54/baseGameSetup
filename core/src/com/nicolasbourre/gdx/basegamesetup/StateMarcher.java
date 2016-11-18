@@ -14,4 +14,9 @@ public class StateMarcher extends StateActor {
     void exit(Actor a) {
 
     }
+
+    @Override
+    String ToString() {
+        return "walking";
+    }
 }

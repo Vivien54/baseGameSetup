@@ -26,7 +26,7 @@ public class BaseGame extends ApplicationAdapter implements InputProcessor {
     float elapsedTime = 0;
 
     Homer homer;
-
+    Actor h;
 
     @Override
     public void create() {
@@ -44,6 +44,8 @@ public class BaseGame extends ApplicationAdapter implements InputProcessor {
         homer.setActiveKeys(activeKeys);
 
         Gdx.input.setInputProcessor(this);
+
+
     }
 
     @Override

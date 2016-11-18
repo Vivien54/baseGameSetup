@@ -1,6 +1,7 @@
 package com.nicolasbourre.gdx.basegamesetup;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import java.util.HashMap;
@@ -13,14 +14,17 @@ public class GraphComponent extends Component {
 
     private HashMap<String, Animation> animations;
     private TextureRegion currentFrame;
-    private String currentAnimation = "walking";//depends of state
 
     GraphComponent(){
-
+        animations = new HashMap<String, Animation>();
     }
 
     @Override
-    void update(float deltaTime) {
+    void update(float deltaTime, Actor a) {
 
+    }
+
+    void addAnimation(String name, Animation animation) {
+        animations.put(name, animation);
     }
 }
