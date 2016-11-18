@@ -38,8 +38,6 @@ public class Homer {
         position = new Vector2(0, 0);
 
         animations = new HashMap<String, Animation>();
-
-
     }
 
     void update(float deltaTime) {
@@ -48,7 +46,8 @@ public class Homer {
         if (activeKeys[Input.Keys.SHIFT_LEFT]) {
             currentAnimation = "running";
             speedFactor = 2f;
-        } else
+        }
+        else
         {
             currentAnimation = "walking";
             speedFactor = 1f;
@@ -65,10 +64,12 @@ public class Homer {
             isFacingLeft = true;
             velocity.x = -1 * speedFactor;
 
-        } else if (activeKeys[Input.Keys.RIGHT]) {
+        }
+        else if (activeKeys[Input.Keys.RIGHT]) {
             isFacingLeft = false;
             velocity.x = 1* speedFactor;
-        } else {
+        }
+        else {
             velocity.x = 0;
             currentAnimation = "walking";
         }
@@ -93,7 +94,8 @@ public class Homer {
 
         if(!isFacingLeft) {
             batch.draw(currentFrame, position.x, position.y);
-        } else {
+        }
+        else {
 
             batch.draw(currentFrame, position.x + currentFrame.getRegionWidth() , position.y, -currentFrame.getRegionWidth(), currentFrame.getRegionHeight());
         }

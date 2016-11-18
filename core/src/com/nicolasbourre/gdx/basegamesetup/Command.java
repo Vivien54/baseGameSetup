@@ -4,5 +4,6 @@ package com.nicolasbourre.gdx.basegamesetup;
  * Created by zaktan on 16-11-18.
  */
 
-public class Command {
+public abstract class Command {
+
 }
