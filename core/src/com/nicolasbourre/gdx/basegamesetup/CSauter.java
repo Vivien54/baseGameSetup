@@ -7,6 +7,6 @@ package com.nicolasbourre.gdx.basegamesetup;
 public class CSauter extends Command{
     @Override
     void execute(Actor a) {
-
+            a.setState(new StateSauter());
     }
 }

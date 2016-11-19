@@ -18,16 +18,23 @@ public class InputComponent extends Component implements InputProcessor {
     private boolean isFacingLeft = false;
     private boolean isJumping = false;
 
-    private boolean activeKeys[];
+    static final int NB_KEYS = 256;
+    boolean activeKeys[] = new boolean[NB_KEYS];
+
 
     InputComponent(){
         sauter = new CSauter();
         marcher = new CMarcher();
         courir = new CCourir();
+
+
+
+        Gdx.input.setInputProcessor(this);
     }
 
     @Override
     void update(float deltaTime, Actor a) {
+
         elapsedTime += deltaTime;
 
         if (activeKeys[Input.Keys.SHIFT_LEFT]) {
@@ -43,6 +50,7 @@ public class InputComponent extends Component implements InputProcessor {
         if (activeKeys[Input.Keys.SPACE]) {
             //command sauter
             sauter.execute(a);
+            isJumping=true;
         }
 
         if (activeKeys[Input.Keys.LEFT]) {
@@ -55,6 +63,8 @@ public class InputComponent extends Component implements InputProcessor {
         }
         else {
             //bouge pas
+            //marcher.execute(a);
+            a.setState(new StateMarcher());
         }
 
     }
@@ -125,4 +135,9 @@ public class InputComponent extends Component implements InputProcessor {
     public void setJumping(boolean jumping) {
         isJumping = jumping;
     }
+
+    public boolean[] getActiveKeys() {
+        return activeKeys;
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.nicolasbourre.gdx.basegamesetup;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 /**
@@ -12,16 +13,13 @@ public class Actor {
    protected PhysicComponent physic = new PhysicComponent();
    protected InputComponent input = new InputComponent();
 
-    Actor(String img){
+    Actor(){
     }
 
     void update(float deltaTime){
-        input.update( deltaTime, this);
-        physic.update(deltaTime, this);
     }
 
-    void display(float deltaTime){
-        graphic.update(deltaTime,this);
+    void display(SpriteBatch batch){
     }
 
     public StateActor getState() {
@@ -32,4 +30,15 @@ public class Actor {
         this.state = state;
     }
 
+    public GraphComponent getGraphic() {
+        return graphic;
+    }
+
+    public PhysicComponent getPhysic() {
+        return physic;
+    }
+
+    public InputComponent getInput() {
+        return input;
+    }
 }

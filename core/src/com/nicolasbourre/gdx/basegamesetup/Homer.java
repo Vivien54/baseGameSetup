@@ -91,7 +91,6 @@ public class Homer {
 
     public void draw(SpriteBatch batch) {
 
-
         if(!isFacingLeft) {
             batch.draw(currentFrame, position.x, position.y);
         }

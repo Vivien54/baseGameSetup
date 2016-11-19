@@ -7,6 +7,6 @@ package com.nicolasbourre.gdx.basegamesetup;
 public class CMarcher extends Command {
     @Override
     void execute(Actor a) {
-
+            a.setState(new StateMarcher());
     }
 }

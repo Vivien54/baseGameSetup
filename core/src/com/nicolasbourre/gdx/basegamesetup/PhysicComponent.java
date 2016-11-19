@@ -19,7 +19,16 @@ public class PhysicComponent extends Component {
 
     @Override
     void update(float deltaTime, Actor a) {
+        position.add(velocity);
 
+        if (a.getInput().isJumping()) {
+            velocity.y -= 0.1;
+
+            if (position.y < 1) {
+                a.getInput().setJumping(false);
+                velocity.y = 0;
+            }
+        }
     }
 
     public Vector2 getVelocity() {

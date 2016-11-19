@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class BaseGame extends ApplicationAdapter implements InputProcessor {
+public class BaseGame extends ApplicationAdapter {
 
     SpriteBatch batch;
     static final int NB_KEYS = 256;
@@ -31,7 +31,9 @@ public class BaseGame extends ApplicationAdapter implements InputProcessor {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        initActiveKeys();
+        h = new HomerActor();
+
+        /*initActiveKeys();
 
         initTextures();
 
@@ -41,9 +43,9 @@ public class BaseGame extends ApplicationAdapter implements InputProcessor {
         homer.addAnimation("walking", walkAnimation);
         homer.addAnimation("running", runAnimation);
 
-        homer.setActiveKeys(activeKeys);
+        homer.setActiveKeys(activeKeys);*/
 
-        Gdx.input.setInputProcessor(this);
+        //Gdx.input.setInputProcessor(this);
 
 
     }
@@ -55,12 +57,11 @@ public class BaseGame extends ApplicationAdapter implements InputProcessor {
 
         update(deltaTime);
         draw(elapsedTime);
-
-
     }
 
     private void update(float deltaTime) {
-        homer.update(deltaTime);
+       // homer.update(deltaTime);
+        h.update(deltaTime);
     }
 
     private void draw(float elapsedTime) {
@@ -69,14 +70,15 @@ public class BaseGame extends ApplicationAdapter implements InputProcessor {
 
 
         batch.begin();
-        homer.draw(batch);
+        //homer.draw(batch);
+        h.display(batch);
+
         batch.end();
     }
 
     @Override
     public void dispose() {
         batch.dispose();
-
     }
 
     void initTextures() {
@@ -91,7 +93,7 @@ public class BaseGame extends ApplicationAdapter implements InputProcessor {
 
     }
 
-    @Override
+    /*@Override
     public boolean keyDown(int keycode) {
         activeKeys[keycode] = true;
         Gdx.app.log(this.getClass().getSimpleName(), "Key down --> " + keycode);
@@ -139,6 +141,6 @@ public class BaseGame extends ApplicationAdapter implements InputProcessor {
         for (int i = 0; i < activeKeys.length; i++) {
             activeKeys[i] = false;
         }
-    }
+    }*/
 
 }
