@@ -22,7 +22,6 @@ public class HomerActor extends Actor {
 
     HomerActor() {
 
-        input.initActiveKeys();
         //input.setActiveKeys(input.getActiveKeys());
         initTextures();
 

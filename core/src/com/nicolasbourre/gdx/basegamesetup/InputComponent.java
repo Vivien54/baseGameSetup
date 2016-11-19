@@ -8,7 +8,7 @@ import com.badlogic.gdx.InputProcessor;
  * Created by zaktan on 16-11-18.
  */
 
-public class InputComponent extends Component implements InputProcessor {
+public class InputComponent extends Component {
     private Command sauter;
     private Command marcher;
     private Command courir;
@@ -18,8 +18,7 @@ public class InputComponent extends Component implements InputProcessor {
     private boolean isFacingLeft = false;
     private boolean isJumping = false;
 
-    static final int NB_KEYS = 256;
-    boolean activeKeys[] = new boolean[NB_KEYS];
+    boolean activeKeys[];
 
 
     InputComponent(){
@@ -27,9 +26,6 @@ public class InputComponent extends Component implements InputProcessor {
         marcher = new CMarcher();
         courir = new CCourir();
 
-
-
-        Gdx.input.setInputProcessor(this);
     }
 
     @Override
@@ -37,7 +33,7 @@ public class InputComponent extends Component implements InputProcessor {
 
         elapsedTime += deltaTime;
 
-        if (activeKeys[Input.Keys.SHIFT_LEFT]) {
+        if (activeKeys[a.getRunKey()]) {
             //command courir
             courir.execute(a);
         }
@@ -47,17 +43,17 @@ public class InputComponent extends Component implements InputProcessor {
             marcher.execute(a);
         }
 
-        if (activeKeys[Input.Keys.SPACE]) {
+        if (activeKeys[a.getJumpKey()]) {
             //command sauter
             sauter.execute(a);
             isJumping=true;
         }
 
-        if (activeKeys[Input.Keys.LEFT]) {
+        if (activeKeys[a.getGoLeftKey()]) {
             //va gauche
             isFacingLeft=true;
         }
-        else if (activeKeys[Input.Keys.RIGHT]) {
+        else if (activeKeys[a.getGoRightKey()]) {
             //va droite
             isFacingLeft=false;
         }
@@ -68,57 +64,6 @@ public class InputComponent extends Component implements InputProcessor {
         }
 
     }
-
-    @Override
-    public boolean keyDown(int keycode) {
-        activeKeys[keycode] = true;
-        Gdx.app.log(this.getClass().getSimpleName(), "Key down --> " + keycode);
-        return false;
-    }
-
-    @Override
-    public boolean keyUp(int keycode) {
-        activeKeys[keycode] = false;
-        Gdx.app.log(this.getClass().getSimpleName(), "Key up --> " + keycode);
-        return false;
-    }
-
-    @Override
-    public boolean keyTyped(char character) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(int screenX, int screenY, int pointer) {
-        return false;
-    }
-
-    @Override
-    public boolean mouseMoved(int screenX, int screenY) {
-        return false;
-    }
-
-    @Override
-    public boolean scrolled(int amount) {
-        return false;
-    }
-
-    public void initActiveKeys() {
-        for (int i = 0; i < activeKeys.length; i++) {
-            activeKeys[i] = false;
-        }
-    }
-
 
     public boolean isFacingLeft() {
         return isFacingLeft;
@@ -138,6 +83,9 @@ public class InputComponent extends Component implements InputProcessor {
 
     public boolean[] getActiveKeys() {
         return activeKeys;
+    }
+    public void setActiveKeys(boolean k[]) {
+        activeKeys=k;
     }
 
 }
