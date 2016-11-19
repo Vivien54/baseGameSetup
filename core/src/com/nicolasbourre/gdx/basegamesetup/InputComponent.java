@@ -64,7 +64,7 @@ public class InputComponent extends Component implements InputProcessor {
         else {
             //bouge pas
             //marcher.execute(a);
-            a.setState(new StateMarcher());
+            //a.setState(new StateMarcher());
         }
 
     }

@@ -8,44 +8,25 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 
 public class BaseGame extends ApplicationAdapter {
 
     SpriteBatch batch;
-    static final int NB_KEYS = 256;
-    boolean activeKeys[] = new boolean[NB_KEYS];
-
-
-    TextureAtlas atlasWalking;
-    Animation walkAnimation;
-
-    TextureAtlas atlasRunning;
-    Animation runAnimation;
 
     float deltaTime;
     float elapsedTime = 0;
 
-    Homer homer;
     Actor h;
+    Actor m;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         h = new HomerActor();
+        //m = new MarioActor();
+        //m.getPhysic().setPosition(new Vector2(25,0));
 
-        /*initActiveKeys();
-
-        initTextures();
-
-
-        homer = new Homer();
-
-        homer.addAnimation("walking", walkAnimation);
-        homer.addAnimation("running", runAnimation);
-
-        homer.setActiveKeys(activeKeys);*/
-
-        //Gdx.input.setInputProcessor(this);
 
 
     }
@@ -60,8 +41,8 @@ public class BaseGame extends ApplicationAdapter {
     }
 
     private void update(float deltaTime) {
-       // homer.update(deltaTime);
         h.update(deltaTime);
+        //m.update(deltaTime);
     }
 
     private void draw(float elapsedTime) {
@@ -70,8 +51,8 @@ public class BaseGame extends ApplicationAdapter {
 
 
         batch.begin();
-        //homer.draw(batch);
         h.display(batch);
+        //m.display(batch);
 
         batch.end();
     }
@@ -80,67 +61,5 @@ public class BaseGame extends ApplicationAdapter {
     public void dispose() {
         batch.dispose();
     }
-
-    void initTextures() {
-        atlasWalking = new TextureAtlas("homer_walking.txt");
-        walkAnimation = new Animation(1 / 8f, atlasWalking.getRegions());
-        walkAnimation.setPlayMode(Animation.PlayMode.LOOP);
-
-
-        atlasRunning = new TextureAtlas("homer_running.txt");
-        runAnimation = new Animation(1 / 8f, atlasRunning.getRegions());
-        runAnimation.setPlayMode(Animation.PlayMode.LOOP);
-
-    }
-
-    /*@Override
-    public boolean keyDown(int keycode) {
-        activeKeys[keycode] = true;
-        Gdx.app.log(this.getClass().getSimpleName(), "Key down --> " + keycode);
-        return false;
-    }
-
-    @Override
-    public boolean keyUp(int keycode) {
-        activeKeys[keycode] = false;
-        Gdx.app.log(this.getClass().getSimpleName(), "Key up --> " + keycode);
-        return false;
-    }
-
-    @Override
-    public boolean keyTyped(char character) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(int screenX, int screenY, int pointer) {
-        return false;
-    }
-
-    @Override
-    public boolean mouseMoved(int screenX, int screenY) {
-        return false;
-    }
-
-    @Override
-    public boolean scrolled(int amount) {
-        return false;
-    }
-
-    void initActiveKeys() {
-        for (int i = 0; i < activeKeys.length; i++) {
-            activeKeys[i] = false;
-        }
-    }*/
 
 }

@@ -1,6 +1,7 @@
 package com.nicolasbourre.gdx.basegamesetup;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 /**
@@ -20,11 +21,13 @@ public class MarioActor extends Actor{
 
     MarioActor() {
 
-        input.initActiveKeys();
+        //input.initActiveKeys();
         initTextures();
         //graphic.addAnimation("walking", walkAnimation);
         graphic.addAnimation("running", runAnimation);
         graphic.addAnimation("standing", standAnimation);
+
+        state = new StateCourir();
     }
 
     public void initTextures(){
@@ -44,6 +47,13 @@ public class MarioActor extends Actor{
     @Override
     void update(float deltaTime){
         input.update( deltaTime, this);
+        state.execute(this);
         physic.update(deltaTime, this);
+        graphic.update(deltaTime, this);
+    }
+
+    @Override
+    void display(SpriteBatch batch){
+        graphic.draw(batch, this);
     }
 }
