@@ -24,11 +24,6 @@ public class StateCourir extends StateActor {
     }
 
     @Override
-    void exit(Actor a) {
-
-    }
-
-    @Override
     String ToString() {
         return "running";
     }

@@ -69,10 +69,6 @@ public class InputComponent extends Component {
         return isFacingLeft;
     }
 
-    public void setFacingLeft(boolean facingLeft) {
-        isFacingLeft = facingLeft;
-    }
-
     public boolean isJumping() {
         return isJumping;
     }

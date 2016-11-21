@@ -6,6 +6,5 @@ package com.nicolasbourre.gdx.basegamesetup;
 
 public abstract class StateActor {
     abstract void execute(Actor a);
-    abstract void exit(Actor a);
     abstract String ToString();
 }
