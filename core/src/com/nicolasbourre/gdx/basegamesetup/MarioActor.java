@@ -23,7 +23,7 @@ public class MarioActor extends Actor{
 
         //input.initActiveKeys();
         initTextures();
-        //graphic.addAnimation("walking", walkAnimation);
+        graphic.addAnimation("walking", walkAnimation);
         graphic.addAnimation("running", runAnimation);
         graphic.addAnimation("standing", standAnimation);
 
@@ -31,9 +31,9 @@ public class MarioActor extends Actor{
     }
 
     public void initTextures(){
-       /* atlasWalking = new TextureAtlas("mario.txt");
+        atlasWalking = new TextureAtlas("mario.txt");
         walkAnimation = new Animation(1 / 8f, atlasWalking.getRegions());
-        walkAnimation.setPlayMode(Animation.PlayMode.LOOP);*/
+        walkAnimation.setPlayMode(Animation.PlayMode.LOOP);
 
         atlasRunning = new TextureAtlas("mario.txt");
         runAnimation = new Animation(1 / 8f, atlasRunning.getRegions());
@@ -55,5 +55,9 @@ public class MarioActor extends Actor{
     @Override
     void display(SpriteBatch batch){
         graphic.draw(batch, this);
+    }
+    @Override
+    public String ActorName(){
+        return "MARIO";
     }
 }

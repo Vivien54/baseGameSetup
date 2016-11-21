@@ -30,7 +30,7 @@ public class GraphComponent extends Component {
             currentAnimation="running";
         else
             currentAnimation=a.getState().ToString();
-
+        //System.out.println(a.ActorName() + "  " + currentAnimation);
         currentFrame = animations.get(currentAnimation).getKeyFrame(elapsedTime);
     }
 

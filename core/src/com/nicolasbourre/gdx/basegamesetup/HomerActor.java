@@ -58,6 +58,8 @@ public class HomerActor extends Actor {
     void display(SpriteBatch batch){
         graphic.draw(batch, this);
     }
-
-
+    @Override
+    public String ActorName(){
+        return "HOMER";
+    }
 }

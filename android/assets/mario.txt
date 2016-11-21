@@ -143,7 +143,7 @@ mario_small_look_up
   orig: 15, 21
   offset: 0, -1
   index: -1
-mario_small_running
+running
   rotate: false
   xy: 161, 37
   size: 18, 22
@@ -170,4 +170,11 @@ mario_small_sliding
   size: 18, 22
   orig: 15, 21
   offset: 0, -1
+  index: -1
+walking
+  rotate: false
+  xy: 161, 37
+  size: 18, 22
+  orig: 15, 19
+  offset: 0, -3
   index: -1

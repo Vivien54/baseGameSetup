@@ -78,4 +78,8 @@ public class Actor {
         this.RunKey=run;
         this.JumpKey=jump;
     }
+
+    public String ActorName(){
+        return "ACTOR";
+    }
 }
