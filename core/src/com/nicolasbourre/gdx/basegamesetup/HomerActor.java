@@ -1,7 +1,6 @@
 package com.nicolasbourre.gdx.basegamesetup;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -25,7 +24,7 @@ public class HomerActor extends Actor {
         //input.setActiveKeys(input.getActiveKeys());
         initTextures();
 
-        graphic.addAnimation("walking", walkAnimation);
+        this.graphic.addAnimation("walking", walkAnimation);
         graphic.addAnimation("running", runAnimation);
 
         state = new StateMarcher();

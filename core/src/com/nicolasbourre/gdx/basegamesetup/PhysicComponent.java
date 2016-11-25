@@ -12,7 +12,7 @@ public class PhysicComponent extends Component {
 
     private float speedFactor = 1;
 
-    PhysicComponent(){
+    public PhysicComponent(){
         velocity = new Vector2(0,0);
         position = new Vector2(0,0);
     }

@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  * Created by zaktan on 16-11-18.
  */
 
-public class MarioActor extends Actor{
+public class MarioActor extends Actor {
 
     TextureAtlas atlasWalking;
     Animation walkAnimation;

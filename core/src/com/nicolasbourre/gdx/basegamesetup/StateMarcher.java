@@ -1,6 +1,5 @@
 package com.nicolasbourre.gdx.basegamesetup;
 
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 
 /**

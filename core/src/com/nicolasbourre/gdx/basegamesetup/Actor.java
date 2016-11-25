@@ -2,7 +2,6 @@ package com.nicolasbourre.gdx.basegamesetup;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 
 /**
  * Created by zaktan on 16-11-18.

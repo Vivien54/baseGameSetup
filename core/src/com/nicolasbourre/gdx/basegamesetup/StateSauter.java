@@ -2,8 +2,6 @@ package com.nicolasbourre.gdx.basegamesetup;
 
 import com.badlogic.gdx.math.Vector2;
 
-import javax.swing.plaf.nimbus.State;
-
 /**
  * Created by zaktan on 16-11-18.
  */

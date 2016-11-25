@@ -1,9 +1,5 @@
 package com.nicolasbourre.gdx.basegamesetup;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
-
 /**
  * Created by zaktan on 16-11-18.
  */
@@ -21,7 +17,7 @@ public class InputComponent extends Component {
     boolean activeKeys[];
 
 
-    InputComponent(){
+    public InputComponent(){
         sauter = new CSauter();
         marcher = new CMarcher();
         courir = new CCourir();

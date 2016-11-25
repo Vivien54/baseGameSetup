@@ -2,7 +2,6 @@ package com.nicolasbourre.gdx.basegamesetup;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import java.util.HashMap;
@@ -19,7 +18,7 @@ public class GraphComponent extends Component {
 
     private float elapsedTime = 0;
 
-    GraphComponent(){
+    public GraphComponent(){
         animations = new HashMap<String, Animation>();
     }
 
@@ -44,7 +43,7 @@ public class GraphComponent extends Component {
         }
     }
 
-    void addAnimation(String name, Animation animation) {
+    public void addAnimation(String name, Animation animation) {
         animations.put(name, animation);
     }
 }
