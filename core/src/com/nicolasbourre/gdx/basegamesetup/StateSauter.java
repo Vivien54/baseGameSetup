@@ -7,6 +7,9 @@ import com.badlogic.gdx.math.Vector2;
  */
 
 public class StateSauter extends StateActor {
+    StateSauter(){
+        System.out.println(ToString());
+    }
     @Override
     void execute(Actor a) {
         a.getPhysic().setVelocity(new Vector2(a.getPhysic().getVelocity().x, 2 * a.getPhysic().getSpeedFactor()));

@@ -7,6 +7,10 @@ import com.badlogic.gdx.math.Vector2;
  */
 
 public class StateCourir extends StateActor {
+
+    StateCourir(){
+        System.out.println(ToString());
+    }
     @Override
     void execute(Actor a) {
         a.getPhysic().setSpeedFactor(2f);

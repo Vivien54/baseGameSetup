@@ -68,14 +68,14 @@ public class BaseGame extends ApplicationAdapter implements InputProcessor{
     @Override
     public boolean keyDown(int keycode) {
         activeKeys[keycode] = true;
-        Gdx.app.log(this.getClass().getSimpleName(), "Key down --> " + keycode);
+        //Gdx.app.log(this.getClass().getSimpleName(), "Key down --> " + keycode);
         return false;
     }
 
     @Override
     public boolean keyUp(int keycode) {
         activeKeys[keycode] = false;
-        Gdx.app.log(this.getClass().getSimpleName(), "Key up --> " + keycode);
+        //Gdx.app.log(this.getClass().getSimpleName(), "Key up --> " + keycode);
         return false;
     }
 
